@@ -1,4 +1,4 @@
-from .views import register, loginPage, index, logout_user, CreateProfilePage, profile, EditProfileView , bike_station, bike ,bikesPerStation, rate_project, bookings,deleteBooking,confirmBooking
+from .views import register, loginPage, index, logout_user, CreateProfilePage, profile, EditProfileView , bike_station, bike ,bikesPerStation, rate_project, bookings,deleteBooking,confirmBooking,single_bike
 from django.urls import path, re_path
 from django.conf import settings
 from django.conf.urls.static import static
@@ -18,6 +18,7 @@ urlpatterns=[
     path('bookings/<int:id>/',bookings, name='bookings'),
     path('delete_booking/<int:id>/',deleteBooking, name='delete_booking'),
     path('confirmbooking/' ,confirmBooking , name='confirm_booking'),
+    path('single_bike/<int:id>/',single_bike, name='single_bike'),
      ]
 
 

@@ -1,18 +1,20 @@
-{%extends "base.html"%}
+{%extends "rate.html"%}
+
+
 {% block content %}
 <div class="containerElement">
-<div class="vertical-center">
+<div class="vertical-center mt-2 mb-3" style="padding:23px">
       <form action="" method="POST" id="form">
         {% csrf_token %}
-          <div class="input-field">
+          <div class="input-field mt-2">
             
-             <span style="display:block; margin-top:4px; font-weight: bolder">rate ride - {{ ratingform.rate_ride }}</span>
+             <span style="font-weight:bolder">rate ride - {{ ratingform.rate_ride }}</span>
           </div>
-          <div class="input-field">
+          <div class="input-field mt-2">
              review - {{ ratingform.body }}
           </div>
 
-          <button type="submit" class="btn btn-secondary">Rate</i</button>
+          <button type="submit" class="btn btn-secondary mt-2 mb-2">Rate</i</button>
       </form>
 </div>
 </div>

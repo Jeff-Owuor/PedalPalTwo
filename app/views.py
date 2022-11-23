@@ -13,7 +13,7 @@ import secrets
 
 
 from .forms import BookingForm, CreateProfileForm, RatingsForm, RegisterForm
-from .models import Bike, Booking, Profile, Station, CustomUser
+from .models import Bike, Booking, Profile, Station, CustomUser,Review
 
 
 def register(request):
@@ -96,6 +96,17 @@ def bikesPerStation(request, station_id):
         "bikes":bikes,
     }
     return render(request,'bikesperstation.html',context)
+
+def single_bike(request,id):
+    bike = Bike.objects.get(id=id)
+    review = Review.objects.filter(bike=id)
+    
+    context = {
+        "bike":bike,
+        "reviews":review
+    }
+    
+    return render(request,'single_bike.html',context)
 
 def bookings(request,id):
     bikez= Booking.objects.filter(user=id)

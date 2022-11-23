@@ -1,0 +1,30 @@
+{%extends "base.html"%}
+
+{% load static %}
+
+{% block styles %}
+
+   <link rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+  <div class="container">
+      <div class="row">
+        <div class="card mb-3">
+            <img class="card-img-top" src="{{bike.bike_photo.url}}" alt="Card image cap">
+            <div class="card-body">
+              {% for review in reviews %}
+              <div class="containerEl">
+                  <p>{{review.user.username}} - {{ review.body }}</p>
+                  <ul class="unordered" style="list-style:none;">
+                    <li> Condition Of Bike -  {{ review.rate_ride }}</li>
+                      
+                  </ul>
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+      </div>
+  </div>
+
+{%endblock%}
