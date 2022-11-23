@@ -99,8 +99,7 @@ def bikesPerStation(request, station_id):
 
 def single_bike(request,id):
     bike = Bike.objects.get(id=id)
-    review = Review.objects.filter(bike=id)
-    
+    review = Review.objects.filter(bike=id)    
     context = {
         "bike":bike,
         "reviews":review
