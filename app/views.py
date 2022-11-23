@@ -92,8 +92,19 @@ def bike(request):
 def bikesPerStation(request, station_id):
     bikez= Station.objects.get(id=station_id)
     bikes=bikez.bike_set.all()
+    if request.method=='POST':
+        form = BookingForm(request.POST)
+        if form.is_valid():
+            book = form.save(commit=False)
+            book.user=request.user
+            book.save()
+            messages.info(request,"Booking successful!")
+            return redirect('/')
+    else:
+        form=BookingForm()
     context={
         "bikes":bikes,
+        'form':form
     }
     return render(request,'bikesperstation.html',context)
 

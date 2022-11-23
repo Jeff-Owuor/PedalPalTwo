@@ -12,6 +12,18 @@
 </div>
   
 {% endfor %}
+<div>
+<label for="">Mpesa</label>
+<input type="radio" name="payment" id="">
+</div>
+<div>
+  <label for="">Card</label>
+  <input type="radio" name="payment" id="">
+  </div>
+  <div>
+    <label for="">Cash</label>
+    <input type="radio" name="payment" id="">
+    </div>
 <a href="{% url 'confirm_booking'%}" class="btn btn-secondary mt-2">Confirm Booking</a>
 </div>
 {%endblock%}
